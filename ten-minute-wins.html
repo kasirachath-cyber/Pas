@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f4ff">
+  <title>เก่งมากไอ้น้องรัก — 10 นาทีของเรา</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --purple: #7554d9;
+      --purple-hover: #6140ca;
+      --purple-light: #edddff;
+      --dark: #28223e;
+      --muted: #817b91;
+      --pink: #ff7fa5;
+      --lav: #f1eaff;
+      --cream: #fffbf8;
+      --line: #ece5f3;
+      --green: #2a9d79;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(160deg, #fff9f4, #f9f5ff 52%, #f7fbff);
+      font-family: 'Prompt', system-ui, sans-serif;
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Container & Header */
+    .app {
+      max-width: 1130px;
+      margin: 0 auto;
+      padding: 28px 22px 100px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 26px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      background: var(--purple-light);
+      border-radius: 17px;
+      font-size: 27px;
+      box-shadow: 0 8px 20px rgba(116, 74, 203, 0.08);
+    }
+
+    .brand strong {
+      font-size: 19px;
+    }
+
+    .tiny {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .topright {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .pill {
+      border: 1px solid #e8defa;
+      background: #ffffff;
+      border-radius: 30px;
+      padding: 9px 14px;
+      color: var(--purple);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* Layout Grid */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.85fr);
+      gap: 20px;
+    }
+
+    .leftstack,
+    .rightstack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.87);
+      border: 1px solid #eee7f4;
+      border-radius: 25px;
+      box-shadow: 0 11px 32px rgba(105, 84, 148, 0.05);
+      padding: 24px;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(115deg, #eadfff, #ffe8ee);
+      position: relative;
+      overflow: hidden;
+      padding: 33px;
+    }
+
+    .hero::after {
+      content: '✦';
+      position: absolute;
+      right: 22px;
+      top: -34px;
+      font-size: 180px;
+      color: rgba(255, 255, 255, 0.47);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.69);
+      padding: 7px 12px;
+      border-radius: 99px;
+      color: #805ac9;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(25px, 3.1vw, 38px);
+      line-height: 1.5;
+      letter-spacing: -0.6px;
+      margin: 14px 0 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      color: #655c79;
+      line-height: 1.85;
+      margin: 0 0 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .btnmain {
+      border: 0;
+      border-radius: 16px;
+      background: var(--purple);
+      color: #ffffff;
+      padding: 16px 23px;
+      font-weight: 700;
+      box-shadow: 0 7px 18px rgba(120, 86, 213, 0.29);
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s ease;
+    }
+
+    .btnmain:hover {
+      background: var(--purple-hover);
+    }
+
+    .btnlight {
+      border: 1px solid #e5d9fa;
+      background: #ffffff;
+      border-radius: 13px;
+      padding: 11px 14px;
+      color: var(--purple);
+      font-weight: 600;
+    }
+
+    .sectiontitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .sectiontitle h2 {
+      font-size: 19px;
+      margin: 0;
+    }
+
+    .sectiontitle small {
+      color: var(--muted);
+    }
+
+    /* Stats Section */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 11px;
+      margin: 19px 0;
+    }
+
+    .stat {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .stat span {
+      font-size: 22px;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 27px;
+      color: #6d51c9;
+    }
+
+    .stat small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Calendar */
+    .calendarHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .monthName {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .navBtn {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff;
+      width: 35px;
+      height: 35px;
+      color: #6d51c9;
+    }
+
+    .week,
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 5px;
+      text-align: center;
+    }
+
+    .week {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .day {
+      aspect-ratio: 1;
+      min-width: 0;
+      border: 1px solid transparent;
+      background: #faf8fd;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-size: 12px;
+      color: #686072;
+      position: relative;
+    }
+
+    .day:hover {
+      border-color: #c1a8f2;
+    }
+
+    .day.done {
+      background: #e9ddff;
+      color: #5b3cae;
+      font-weight: 700;
+    }
+
+    .day.today {
+      outline: 2px solid #b99de9;
+    }
+
+    .day.selected {
+      background: var(--purple);
+      color: #ffffff;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #a37beb;
+    }
+
+    .day.selected .dot {
+      background: #ffffff;
+    }
+
+    .empty {
+      background: transparent;
+    }
+
+    .quote {
+      text-align: center;
+      background: #fff6e9;
+      border-radius: 19px;
+      padding: 18px;
+      color: #7b5d4e;
+      font-size: 13px;
+      margin-top: 15px;
+      line-height: 1.8;
+    }
+
+    /* Entries / Log */
+    .filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .chip {
+      background: #f7f3fe;
+      color: #66528d;
+      border: 0;
+      border-radius: 30px;
+      padding: 7px 12px;
+      font-size: 12px;
+    }
+
+    .chip.active {
+      background: #7455d8;
+      color: #ffffff;
+    }
+
+    .entry {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f0eaf5;
+    }
+
+    .entry:last-child {
+      border-bottom: 0;
+    }
+
+    .entryimage {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 14px;
+      flex-shrink: 0;
+      background: #f2eaff;
+    }
+
+    .entryicon {
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+    }
+
+    .entrymain {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .entrymain strong {
+      font-size: 14px;
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .entrymain p {
+      font-size: 12px;
+      color: #676076;
+      margin: 5px 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .entrymain small {
+      color: #9b91a8;
+      font-size: 11px;
+    }
+
+    .delete {
+      background: transparent;
+      border: 0;
+      color: #aa98b9;
+      font-size: 16px;
+      padding: 5px;
+      align-self: flex-start;
+    }
+
+    .blank {
+      text-align: center;
+      padding: 30px 12px;
+      color: #8b829c;
+      line-height: 1.9;
+      font-size: 13px;
+    }
+
+    .footer {
+      margin: 25px 0;
+      text-align: center;
+      color: #a49ab4;
+      font-size: 12px;
+    }
+
+    /* Modal & Dialogs */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(38, 27, 57, 0.67);
+      backdrop-filter: blur(4px);
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #ffffff;
+      border-radius: 25px;
+      padding: 27px;
+      width: min(100%, 480px);
+      max-height: 94dvh;
+      overflow: auto;
+      box-shadow: 0 25px 80px rgba(43, 28, 62, 0.2);
+    }
+
+    .modal h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .modal p {
+      color: #777085;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .close {
+      float: right;
+      background: #f3edf9;
+      border: 0;
+      border-radius: 10px;
+      width: 31px;
+      height: 31px;
+    }
+
+    .field {
+      display: block;
+      margin: 13px 0;
+    }
+
+    .field span {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 13px;
+      border: 1px solid #e5dcef;
+      background: #fefcff;
+      outline-color: #977be6;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .upload {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px dashed #b7a1eb;
+      background: #fbf8ff;
+      border-radius: 15px;
+      padding: 18px;
+      cursor: pointer;
+      color: #7354c8;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .upload img {
+      max-height: 160px;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .success {
+      text-align: center;
+    }
+
+    .success .big {
+      font-size: 56px;
+    }
+
+    .success h2 {
+      color: #7354c8;
+      font-size: 26px;
+    }
+
+    .countdown {
+      font-variant-numeric: tabular-nums;
+      font-size: 67px;
+      text-align: center;
+      font-weight: 800;
+      color: #7151d2;
+      margin: 15px 0;
+    }
+
+    .progress {
+      height: 12px;
+      background: #eee5fb;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress > div {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #9a7bec, #ff90b8);
+      transition: width 0.4s;
+    }
+
+    .timerNote {
+      text-align: center;
+    }
+
+    .timerbtns {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .note {
+      background: #f8f5fd;
+      color: #776b8e;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .confetti {
+      font-size: 24px;
+      letter-spacing: 9px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      .app {
+        padding: 15px 13px 80px;
+      }
+      .top {
+        margin-bottom: 15px;
+      }
+      .brand strong {
+        font-size: 15px;
+      }
+      .logo {
+        width: 42px;
+        height: 42px;
+        font-size: 23px;
+      }
+      .topright .pill {
+        font-size: 11px;
+        padding: 8px 10px;
+      }
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .rightstack,
+      .leftstack {
+        gap: 15px;
+      }
+      .panel {
+        padding: 18px;
+        border-radius: 20px;
+      }
+      .hero {
+        padding: 25px 20px;
+      }
+      .stats {
+        gap: 8px;
+        margin: 15px 0;
+      }
+      .stat {
+        padding: 12px;
+      }
+      .stat b {
+        font-size: 22px;
+      }
+      .stat small {
+        font-size: 10px;
+      }
+      .day {
+        border-radius: 9px;
+        font-size: 11px;
+      }
+      .hero h1 {
+        font-size: 27px;
+      }
+      .entryimage {
+        width: 63px;
+        height: 63px;
+      }
+      .btnmain {
+        padding: 13px 17px;
+      }
+      .mobileHide {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Top Bar -->
+    <header class="top">
+      <div class="brand">
+        <div class="logo">🌷</div>
+        <div>
+          <strong>10 นาทีของเรา</strong>
+          <div class="tiny">บันทึกความเก่งเล็ก ๆ ที่ยิ่งใหญ่</div>
+        </div>
+      </div>
+      <div class="topright">
+        <span class="pill" id="topWins">✨ 0 ชัยชนะ</span>
+        <button class="pill" id="exportBtn" title="สำรองข้อมูลเป็นไฟล์">
+          ⇩ <span class="mobileHide">สำรองข้อมูล</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="layout">
+      <!-- Left Column -->
+      <div class="leftstack">
+        <section class="panel hero">
+          <span class="eyebrow">💜 แค่เริ่มก็เก่งแล้ว</span>
+          <h1>วันนี้ขอแค่ <em style="font-style: normal; color: #7554d9;">10 นาที</em><br>ก็ถือว่าชนะแล้วนะ!</h1>
+          <p>
+            ไม่ต้องสมบูรณ์แบบ ไม่ต้องเก่งกว่าใคร<br>
+            แค่ลุกขึ้นมาทำอะไรเพื่อตัวเอง ก็ภูมิใจได้แล้ว ✨
+          </p>
+          <div class="actions">
+            <button class="btnmain" id="startBtn">⏱ เริ่มจับเวลา 10 นาที</button>
+            <button class="btnlight" id="instantBtn">✓ บันทึกที่ทำสำเร็จแล้ว</button>
+          </div>
+        </section>
+
+        <div class="stats">
+          <div class="stat">
+            <span>🏆</span>
+            <b id="total">0</b>
+            <small>ครั้งที่เอาชนะใจตัวเอง</small>
+          </div>
+          <div class="stat">
+            <span>⏰</span>
+            <b id="minutes">0</b>
+            <small>นาทีที่ทำเพื่อตัวเอง</small>
+          </div>
+          <div class="stat">
+            <span>🌈</span>
+            <b id="activeDays">0</b>
+            <small>วันที่ลงมือทำ</small>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="sectiontitle">
+            <h2>📔 สมุดสะสมความเก่ง</h2>
+            <small id="entryCount">0 รายการ</small>
+          </div>
+          <div class="filter">
+            <button class="chip active" data-filter="all">ทั้งหมด</button>
+            <button class="chip" data-filter="today">วันนี้</button>
+            <button class="chip" data-filter="chosen">วันที่เลือกในปฏิทิน</button>
+          </div>
+          <div id="entries"></div>
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <div class="rightstack">
+        <section class="panel">
+          <div class="sectiontitle">
+            <h2>🗓 ปฏิทินแห่งชัยชนะ</h2>
+          </div>
+          <div class="calendarHeader">
+            <button class="navBtn" id="prevMonth" aria-label="เดือนก่อน">‹</button>
+            <div class="monthName" id="monthName"></div>
+            <button class="navBtn" id="nextMonth" aria-label="เดือนถัดไป">›</button>
+          </div>
+          <div class="week">
+            <span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span>
+          </div>
+          <div class="days" id="days"></div>
+          <div class="quote" id="calendarQuote">🌻 ทุกวันที่ลงมือทำ เป็นหลักฐานว่าเธอเก่งแค่ไหน</div>
+        </section>
+
+        <section class="panel">
+          <div class="sectiontitle">
+            <h2>💌 ข้อความถึงตัวเอง</h2>
+          </div>
+          <p style="color: #756c85; line-height: 1.9; font-size: 14px;">
+            วันไหนที่รู้สึกว่าไม่ได้ทำอะไร ลองเปิดบันทึกนี้ดูนะ ทุก 10 นาทีที่ผ่านมาเป็นเรื่องจริง และความพยายามของเธอก็มีความหมายเสมอ
+          </p>
+          <div class="note">
+            🔐 ข้อมูลตอนนี้บันทึกอยู่ในเบราว์เซอร์ของอุปกรณ์นี้ ไม่ได้ซิงก์ข้ามเครื่อง กด “สำรองข้อมูล” เพื่อเก็บไฟล์ไว้ และใช้ “นำเข้าข้อมูล” เพื่อกู้คืนได้
+          </div>
+          <div style="margin-top: 13px;">
+            <label class="btnlight" for="importFile" style="display: inline-block; cursor: pointer;">↑ นำเข้าข้อมูลที่สำรองไว้</label>
+            <input type="file" accept="application/json,.json" id="importFile" class="hidden">
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      made with ♡ — ไม่จำเป็นต้องชนะทั้งวัน แค่ 10 นาทีก็เก่งมากแล้ว
+    </footer>
+  </div>
+
+  <!-- Timer Modal -->
+  <div class="overlay" id="timerOverlay" role="dialog" aria-modal="true" aria-labelledby="timerTitle">
+    <div class="modal">
+      <button class="close" data-close="timerOverlay">×</button>
+      <h2 id="timerTitle">⏱ 10 นาทีนี้เพื่อตัวเอง</h2>
+      <p class="timerNote">อยากอ่านหนังสือ เก็บห้อง ยืดเส้น หรือทำอะไรก็ได้ที่อยากเริ่ม</p>
+      <div class="countdown" id="clock">10:00</div>
+      <div class="progress">
+        <div id="bar"></div>
+      </div>
+      <div class="timerbtns">
+        <button class="btnmain" id="pauseBtn">▶ เริ่มเลย</button>
+        <button class="btnlight" id="doneEarly">✓ ทำครบแล้ว</button>
+      </div>
+      <p class="timerNote">พอครบเวลาแล้วจะบันทึกชัยชนะให้ได้เลย 💜</p>
+    </div>
+  </div>
+
+  <!-- Record Modal -->
+  <div class="overlay" id="recordOverlay" role="dialog" aria-modal="true" aria-labelledby="recordTitle">
+    <div class="modal">
+      <button class="close" data-close="recordOverlay">×</button>
+      <h2 id="recordTitle">📝 บันทึกความเก่งวันนี้</h2>
+      <p>10 นาทีนี้ทำอะไรไปบ้าง เล่าได้เต็มที่เลย ไม่ต้องเป็นเรื่องใหญ่ก็ได้นะ</p>
+      <form id="recordForm">
+        <label class="field">
+          <span>วันนี้ฉันทำอะไร? *</span>
+          <input id="activity" required maxlength="100" placeholder="เช่น อ่านหนังสือ / เก็บห้อง / ออกกำลังกาย">
+        </label>
+        <label class="field">
+          <span>อยากเล่าอะไรให้ตัวเองฟังไหม?</span>
+          <textarea id="description" maxlength="1500" placeholder="วันนี้เริ่มยากนิดหน่อย แต่สุดท้ายฉันก็ลงมือทำแล้ว..."></textarea>
+        </label>
+        <label class="field">
+          <span>เพิ่มรูปภาพเป็นความทรงจำ (ไม่บังคับ)</span>
+          <label for="photoFile" class="upload" id="uploadLabel">📸 แตะเพื่อเลือกรูป หรือถ่ายรูปจากมือถือ</label>
+          <input id="photoFile" type="file" accept="image/*" style="width: 100%; margin-top: 8px; font-size: 11px;">
+        </label>
+        <p class="note">ระบบย่อรูปก่อนเก็บไว้ในเครื่อง เพื่อช่วยประหยัดพื้นที่</p>
+        <button class="btnmain" type="submit" style="width: 100%;">💜 บันทึกชัยชนะของฉัน</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="overlay" id="successOverlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal success">
+      <button class="close" data-close="successOverlay">×</button>
+      <div class="confetti">✨ 🎊 ✨</div>
+      <div class="big">🏆</div>
+      <h2 id="successTitle">เจ๋งมากไอ้น้องรัก!</h2>
+      <p>
+        ดูสิ เธอเอาชนะตัวเองได้ตั้ง 10 นาทีแน่ะ!<br>
+        ไม่ว่าวันนี้จะเป็นยังไง เธอก็มีเหตุผลให้ภูมิใจในตัวเองแล้วนะ 💖
+      </p>
+      <button class="btnmain" data-close="successOverlay">กลับไปชมความเก่งของตัวเอง</button>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const KEY = 'tenMinuteWins-v1';
+      const months = [
+        'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน',
+        'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม',
+        'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
+      ];
+
+      // State
+      let items = [];
+      let year = new Date().getFullYear();
+      let month = new Date().getMonth();
+      let chosen = localDay(new Date());
+      let filter = 'all';
+
+      // Timer state
+      let elapsed = 0;
+      let timerRunning = false;
+      let lastTick = 0;
+      let timerId = null;
+      let photoData = null;
+
+      // Utilities
+      const $ = (id) => document.getElementById(id);
+      const pad = (n) => String(n).padStart(2, '0');
+
+      function localDay(d) {
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      }
+
+      function safe(text) {
+        return String(text ?? '').replace(/[&<>"']/g, (c) => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[c]));
+      }
+
+      // Initial Load
+      try {
+        const stored = JSON.parse(localStorage.getItem(KEY) || '[]');
+        items = Array.isArray(stored)
+          ? stored.filter((x) => x && typeof x.id === 'string' && typeof x.date === 'string' && typeof x.activity === 'string')
+          : [];
+      } catch (err) {
+        alert('อ่านข้อมูลที่เก็บไว้ไม่สำเร็จ โปรดสำรองข้อมูลก่อนดำเนินการอื่น');
+      }
+
+      // Storage Handler
+      function save() {
+        try {
+          localStorage.setItem(KEY, JSON.stringify(items));
+          return true;
+        } catch (err) {
+          alert('พื้นที่เก็บข้อมูลของเบราว์เซอร์เต็ม กรุณาสำรองข้อมูลและลองใช้รูปขนาดเล็กลง');
+          return false;
+        }
+      }
+
+      // Render Functions
+      function render() {
+        const activeDates = new Set(items.map((x) => x.date));
+        $('topWins').textContent = `✨ ${items.length} ชัยชนะ`;
+        $('total').textContent = items.length;
+        $('minutes').textContent = items.length * 10;
+        $('activeDays').textContent = activeDates.size;
+
+        renderCalendar();
+        renderEntries();
+      }
+
+      function renderCalendar() {
+        $('monthName').textContent = `${months[month]} ${year + 543}`;
+        const offset = new Date(year, month, 1).getDay();
+        const maxDays = new Date(year, month + 1, 0).getDate();
+        const counts = {};
+
+        items.forEach((x) => {
+          counts[x.date] = (counts[x.date] || 0) + 1;
+        });
+
+        let html = '';
+        for (let i = 0; i < offset; i++) {
+          html += '<div class="empty"></div>';
+        }
+
+        for (let i = 1; i <= maxDays; i++) {
+          const iso = `${year}-${pad(month + 1)}-${pad(i)}`;
+          const n = counts[iso] || 0;
+          const isToday = iso === localDay(new Date()) ? 'today' : '';
+          const isSelected = chosen === iso ? 'selected' : '';
+          const isDone = n ? 'done' : '';
+
+          html += `
+            <button class="day ${isDone} ${isToday} ${isSelected}" data-day="${iso}" aria-label="${i} ${months[month]} ${n} ครั้ง">
+              <span>${i}</span>
+              ${n ? '<span class="dot"></span>' : ''}
+            </button>`;
+        }
+
+        $('days').innerHTML = html;
+
+        const currentChosenCount = counts[chosen] || 0;
+        $('calendarQuote').textContent = currentChosenCount
+          ? `🎉 วันนี้เธอชนะใจตัวเองได้ ${currentChosenCount} ครั้ง เก่งมากเลย!`
+          : '🌻 ยังไม่มีบันทึกในวันที่เลือก และนั่นก็ไม่เป็นไรนะ';
+
+        document.querySelectorAll('[data-day]').forEach((el) => {
+          el.onclick = () => {
+            chosen = el.dataset.day;
+            filter = 'chosen';
+            render();
+            updateFilters();
+          };
+        });
+      }
+
+      function renderEntries() {
+        let arr = items.slice().sort((a, b) => b.created - a.created);
+
+        if (filter === 'today') {
+          arr = arr.filter((x) => x.date === localDay(new Date()));
+        } else if (filter === 'chosen') {
+          arr = arr.filter((x) => x.date === chosen);
+        }
+
+        $('entryCount').textContent = `${arr.length} รายการ`;
+
+        if (!arr.length) {
+          $('entries').innerHTML = `
+            <div class="blank">
+              🌱 ยังไม่มีบันทึกตรงนี้<br>ไม่เป็นไรเลย การเริ่มครั้งต่อไปยังรอเธออยู่
+            </div>`;
+          return;
+        }
+
+        $('entries').innerHTML = arr.map((x) => `
+          <article class="entry">
+            <div class="entryimage ${x.photo ? '' : 'entryicon'}">
+              ${x.photo ? `<img class="entryimage" src="${x.photo}" alt="ภาพบันทึกกิจกรรม">` : '💜'}
+            </div>
+            <div class="entrymain">
+              <strong>${safe(x.activity)}</strong>
+              ${x.description ? `<p>${safe(x.description)}</p>` : ''}
+              <small>🌷 ${safe(x.date)} · ${safe(x.time || '')} · 10 นาทีแห่งความเก่ง</small>
+            </div>
+            <button class="delete" data-delete="${safe(x.id)}" title="ลบบันทึก" aria-label="ลบบันทึก">✕</button>
+          </article>
+        `).join('');
+
+        document.querySelectorAll('[data-delete]').forEach((el) => {
+          el.onclick = () => {
+            if (confirm('ลบบันทึกนี้ใช่ไหม?')) {
+              items = items.filter((x) => x.id !== el.dataset.delete);
+              save();
+              render();
+            }
+          };
+        });
+      }
+
+      function updateFilters() {
+        document.querySelectorAll('[data-filter]').forEach((el) => {
+          el.classList.toggle('active', el.dataset.filter === filter);
+        });
+      }
+
+      document.querySelectorAll('[data-filter]').forEach((el) => {
+        el.onclick = () => {
+          filter = el.dataset.filter;
+          updateFilters();
+          renderEntries();
+        };
+      });
+
+      // Modal Triggers
+      function openModal(id) {
+        $(id).classList.add('open');
+      }
+
+      function closeModal(id) {
+        $(id).classList.remove('open');
+      }
+
+      document.querySelectorAll('[data-close]').forEach((el) => {
+        el.onclick = () => closeModal(el.dataset.close);
+      });
+
+      document.querySelectorAll('.overlay').forEach((el) => {
+        el.addEventListener('click', (e) => {
+          if (e.target === el && el.id !== 'timerOverlay') {
+            closeModal(el.id);
+          }
+        });
+      });
+
+      // Calendar Navigation
+      $('prevMonth').onclick = () => {
+        month--;
+        if (month < 0) {
+          month = 11;
+          year--;
+        }
+        renderCalendar();
+      };
+
+      $('nextMonth').onclick = () => {
+        month++;
+        if (month > 11) {
+          month = 0;
+          year++;
+        }
+        renderCalendar();
+      };
+
+      // Timer Logic
+      function updateClock() {
+        const left = Math.max(0, 600 - elapsed);
+        $('clock').textContent = `${pad(Math.floor(left / 60))}:${pad(Math.ceil(left % 60))}`;
+        $('bar').style.width = `${Math.min(100, (elapsed / 600) * 100)}%`;
+      }
+
+      function tick() {
+        if (!timerRunning) return;
+        const now = Date.now();
+        elapsed += (now - lastTick) / 1000;
+        lastTick = now;
+
+        if (elapsed >= 600) {
+          elapsed = 600;
+          timerRunning = false;
+          clearInterval(timerId);
+          updateClock();
+          $('pauseBtn').textContent = '▶ เริ่มใหม่';
+          closeModal('timerOverlay');
+          openRecord();
+          return;
+        }
+
+        updateClock();
+      }
+
+      $('startBtn').onclick = () => {
+        elapsed = 0;
+        timerRunning = false;
+        clearInterval(timerId);
+        $('pauseBtn').textContent = '▶ เริ่มเลย';
+        updateClock();
+        openModal('timerOverlay');
+      };
+
+      $('pauseBtn').onclick = () => {
+        if (timerRunning) {
+          tick();
+          timerRunning = false;
+          clearInterval(timerId);
+          $('pauseBtn').textContent = '▶ ทำต่อ';
+        } else {
+          if (elapsed >= 600) elapsed = 0;
+          timerRunning = true;
+          lastTick = Date.now();
+          timerId = setInterval(tick, 250);
+          $('pauseBtn').textContent = 'Ⅱ หยุดพัก';
+        }
+      };
+
+      $('doneEarly').onclick = () => {
+        timerRunning = false;
+        clearInterval(timerId);
+        closeModal('timerOverlay');
+        openRecord();
+      };
+
+      $('instantBtn').onclick = openRecord;
+
+      // Record & Image Processing
+      function openRecord() {
+        photoData = null;
+        $('recordForm').reset();$('uploadLabel').innerHTML = '📸 แตะเพื่อเลือกรูป หรือถ่ายรูปจากมือถือ';
+        openModal('recordOverlay');
+        setTimeout(() => $('activity').focus(), 60);
+      }
+
+      function shrinkImage(file) {
+        return new Promise((resolve, reject) => {
+          if (!file) return resolve(null);
+          if (!file.type.startsWith('image/')) {
+            return reject(new Error('กรุณาเลือกไฟล์รูปภาพ'));
+          }
+          if (file.size > 25 * 1024 * 1024) {
+            return reject(new Error('รูปภาพใหญ่เกิน 25 MB'));
+          }
+
+          const img = new Image();
+          const url = URL.createObjectURL(file);
+
+          img.onload = () => {
+            try {
+              const scale = Math.min(1, 1100 / Math.max(img.width, img.height));
+              const canvas = document.createElement('canvas');
+              canvas.width = Math.max(1, Math.round(img.width * scale));
+              canvas.height = Math.max(1, Math.round(img.height * scale));
+
+              const ctx = canvas.getContext('2d');
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+              const out = canvas.toDataURL('image/jpeg', 0.72);
+              URL.revokeObjectURL(url);
+              resolve(out);
+            } catch (err) {
+              URL.revokeObjectURL(url);
+              reject(err);
+            }
+          };
+
+          img.onerror = () => {
+            URL.revokeObjectURL(url);
+            reject(new Error('เปิดรูปภาพไม่ได้'));
+          };
+
+          img.src = url;
+        });
+      }
+
+      $('photoFile').onchange = async (e) => {
+        const file = e.target.files[0];
+        photoData = null;
+        if (!file) return;
+
+        $('uploadLabel').textContent = 'กำลังเตรียมรูป...';
+        try {
+          photoData = await shrinkImage(file);
+          $('uploadLabel').innerHTML = `<img alt="ตัวอย่างรูปที่เลือก" src="${photoData}">`;
+        } catch (err) {
+          alert(err.message);
+          $('uploadLabel').textContent = '📸 เลือกรูปอีกครั้ง';
+        }
+      };
+
+      // Form Submit
+      $('recordForm').onsubmit = (e) => {
+        e.preventDefault();
+        const activityVal = $('activity').value.trim();
+        if (!activityVal) {
+          $('activity').focus();
+          return;
+        }
+
+        const now = new Date();
+        const newItem = {
+          id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
+          date: localDay(now),
+          created: now.getTime(),
+          time: `${pad(now.getHours())}:${pad(now.getMinutes())}`,
+          activity: activityVal,
+          description: $('description').value.trim(),
+          photo: photoData
+        };
+
+        items.push(newItem);
+        if (!save()) {
+          items.pop();
+          return;
+        }
+
+        year = now.getFullYear();
+        month = now.getMonth();
+        chosen = localDay(now);
+        filter = 'all';
+
+        updateFilters();
+        render();
+        closeModal('recordOverlay');
+        openModal('successOverlay');
+      };
+
+      // Backup & Restore
+      $('exportBtn').onclick = () => {
+        const exportData = {
+          app: '10-minute-wins',
+          version: 1,
+          exportedAt: new Date().toISOString(),
+          items
+        };
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+
+        a.href = url;
+        a.download = `10-minute-wins-backup-${localDay(new Date())}.json`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
+      };
+
+      $('importFile').onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        try {
+          const data = JSON.parse(await file.text());
+          if (!data || data.app !== '10-minute-wins' || !Array.isArray(data.items)) {
+            throw new Error('ไฟล์ไม่ตรงรูปแบบ');
+          }
+
+          const clean = data.items
+            .filter((x) => x && typeof x.id === 'string' && typeof x.date === 'string' && typeof x.activity === 'string')
+            .map((x) => ({
+              id: x.id,
+              date: x.date,
+              created: Number(x.created) || Date.now(),
+              time: String(x.time || ''),
+              activity: x.activity.slice(0, 100),
+              description: String(x.description || '').slice(0, 1500),
+              photo: typeof x.photo === 'string' && x.photo.startsWith('data:image/') ? x.photo : null
+            }));
+
+          if (!confirm(`พบ ${clean.length} บันทึก ต้องการรวมเข้ากับข้อมูลเดิมไหม? (บันทึกซ้ำจะไม่เพิ่ม)`)) {
+            return;
+          }
+
+          const previous = items.slice();
+          const existingIds = new Set(items.map((x) => x.id));
+
+          clean.forEach((x) => {
+            if (!existingIds.has(x.id)) {
+              items.push(x);
+              existingIds.add(x.id);
+            }
+          });
+
+          if (!save()) {
+            items = previous;
+            return;
+          }
+
+          render();
+          alert('นำเข้าข้อมูลเรียบร้อย 💜');
+        } catch (err) {
+          alert('นำเข้าไม่ได้: ' + err.message);
+        } finally {
+          e.target.value = '';
+        }
+      };
+
+      // Lifecycle Handlers
+      window.addEventListener('beforeunload', (e) => {
+        if (timerRunning) {
+          e.preventDefault();
+          e.returnValue = '';
+        }
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (timerRunning) tick();
+      });
+
+      // Init
+      render();
+      updateFilters();
+      updateClock();
+    })();
+  </script>
+</body>
+</html>
